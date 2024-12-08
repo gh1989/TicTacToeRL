@@ -81,10 +81,12 @@ bool Agent::randomChance(float probability) {
 
 void Agent::loadModel(const std::string& path) {
     torch::load(policyNetwork, path);
+    policyNetwork->to(device);
     std::cout << "Model loaded from " << path << "\n";
 }
 
 void Agent::saveModel(const std::string& path) {
     torch::save(policyNetwork, path);
+    policyNetwork->to(device);
     std::cout << "Model saved to " << path << "\n";
 }

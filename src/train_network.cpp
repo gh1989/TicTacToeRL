@@ -5,16 +5,16 @@
 #include <iostream>
 #include <fstream>
 
-int main() {
+int _main() {
     // Device configuration
     torch::Device device(torch::kCUDA);
 
     // Training configuration
-    int numEpisodes = 1000;       // Number of training episodes
-    float initialEpsilon = 1.0;  // Initial exploration rate
+    int numEpisodes = 100000;       // Number of training episodes
+    float initialEpsilon = 1e-4;  // Initial exploration rate
     float epsilonDecay = 0.99;   // Decay rate for exploration
-    float minEpsilon = 0.1;      // Minimum exploration rate
-    float learningRate = 1e-3;   // Learning rate for optimizer
+    float minEpsilon = 0.0001;      // Minimum exploration rate
+    float learningRate = 1e-5;   // Learning rate for optimizer
     std::string modelPath = "tictactoe_model.pt";
 
     // Create environment and agent
